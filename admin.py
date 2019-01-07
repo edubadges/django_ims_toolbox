@@ -1,4 +1,5 @@
 from django.contrib import admin
+from mainsite.admin import badgr_admin
 
 from ims.models import IMSArchive, LTIApp, LTITenant
 
@@ -16,6 +17,6 @@ class LTITenantAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('organization',)}
 
 
-admin.site.register(IMSArchive, IMSArchiveAdmin)
-admin.site.register(LTIApp, LTIAppAdmin)
-admin.site.register(LTITenant, LTITenantAdmin)
+badgr_admin.register(IMSArchive, IMSArchiveAdmin)
+badgr_admin.register(LTIApp, LTIAppAdmin)
+badgr_admin.register(LTITenant, LTITenantAdmin)
