@@ -62,7 +62,8 @@ class IMSArchive(models.Model):
     metadata_tag.short_description = 'Metadata'
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        #super().__init__(*args, **kwargs) # python 3.X version
+        super(IMSArchive, self).__init__(*args, **kwargs)
         if not isinstance(self, (CommonCartridge, ContentPackage)):
             if self.file.name.endswith("imscc"):
                 self.__class__ = CommonCartridge

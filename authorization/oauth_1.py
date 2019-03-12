@@ -6,6 +6,9 @@ from social_django.models import Nonce
 
 from ims.models import LTITenant
 
+UNICODE_ASCII_CHARACTER_SET = ('abcdefghijklmnopqrstuvwxyz'
+                               'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+                               '0123456789')
 
 class LTIRequestValidator(RequestValidator):
     """
@@ -20,7 +23,7 @@ class LTIRequestValidator(RequestValidator):
 
     @property
     def safe_characters(self):
-        safe_characters = super().safe_characters
+        safe_characters = set(UNICODE_ASCII_CHARACTER_SET)#super(LTIRequestValidator, self).safe_characters()
         safe_characters.add("-")
         return safe_characters
 
@@ -56,7 +59,8 @@ class LTIRequestValidator(RequestValidator):
 class LTIRemoteUserBackend(RemoteUserBackend):
 
     def authenticate(self, request, remote_user):
-        user = super().authenticate(request, remote_user)
+        #user = super().authenticate(request, remote_user)
+        user = super(LTIRemoteUserBackend, self).authenticate(request, remote_user)
         if not user.first_name or not user.last_name:  # because RemoteUserBackend.configure_user ignores request :(
             user.first_name = request.POST.get('lis_person_name_given', '')
             user.last_name = request.POST.get('lis_person_name_family', '')
