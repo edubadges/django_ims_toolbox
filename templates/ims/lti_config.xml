@@ -10,7 +10,7 @@
     http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd">
     <blti:title>{{ app.title }}</blti:title>
     <blti:description>{{ app.description }}</blti:description>
-    <blti:launch_url>https://{{ host }}/{{ app.slug }}/</blti:launch_url>
+    <blti:launch_url>https://{{ host }}/lti_app/{{ app.slug }}/</blti:launch_url>
 
     {% if tenant.lms == lms.CANVAS %}
         <blti:extensions platform="canvas.instructure.com">
@@ -20,7 +20,7 @@
 
             {% if tenant.config.canvas_course_navigation_visibility %}
                 <lticm:options name="course_navigation">
-                    <lticm:property name="url">https://{{ host }}/{{ app.slug }}</lticm:property>
+                    <lticm:property name="url">https://{{ host }}/lti_app/{{ app.slug }}</lticm:property>
                     <lticm:property name="text">{{ app.title }}</lticm:property>
                     <lticm:property name="visibility">{{ tenant.config.canvas_course_navigation_visibility }}</lticm:property>
                     <lticm:property name="default">enabled</lticm:property>
