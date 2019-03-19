@@ -98,7 +98,9 @@ class LTITenant(models.Model):
             self._start_generic_session(launch_request, data)
 
     def get_lti_config_url(self):
-        return "{}{}".format(settings.DEFAULT_DOMAIN, reverse('lti-config', args=(self.app.slug, self.slug,)))
+#         return "{}{}".format(settings.DEFAULT_DOMAIN, reverse('lti-config', args=(self.app.slug, self.slug,)))
+        return "{}{}".format(settings.HTTP_ORIGIN, reverse('lti-config', args=(self.app.slug, self.slug,)))
+    
     get_lti_config_url.short_description = 'Config URL'
 
     def __str__(self):

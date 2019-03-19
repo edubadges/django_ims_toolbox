@@ -20,7 +20,7 @@ class LTIRequestValidator(RequestValidator):
 
     @property
     def safe_characters(self):
-        safe_characters = super().safe_characters
+        safe_characters = super(LTIRequestValidator, self).safe_characters
         safe_characters.add("-")
         return safe_characters
 
