@@ -41,7 +41,7 @@ def lti_launch(request, slug):
     # Redirect impossible because we need to set cookies for sessions
     url = reverse(app.view)
     view = resolve(url)
-    return view.func(request)
+    return view.func(request, tenant=tenant)
 
 
 def lti_config(request, app_slug, tenant_slug):
