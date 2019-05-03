@@ -8,6 +8,8 @@ from django.core.exceptions import ValidationError
 
 from dgconfig import ConfigurationField
 
+from mainsite.models import BadgrApp
+
 
 class LTIPrivacyLevels(object):
     ANONYMOUS = 'anonymous'
@@ -80,6 +82,7 @@ class LTITenant(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     modified_at = models.DateTimeField(auto_now=True, editable=False)
+    badgr_app = models.ForeignKey(BadgrApp , null=True, on_delete=models.SET_NULL)
 
     def _start_generic_session(self, launch_request, data):
         launch_request.session['roles'] = ''
