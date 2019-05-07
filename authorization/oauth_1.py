@@ -53,7 +53,7 @@ class LTIRequestValidator(RequestValidator):
             nonce, created = Nonce.objects.get_or_create(timestamp=timestamp, salt=nonce, server_url=client_key)
         except ValidationError:
             return False
-        return created
+        return True # TODO : fix this error issue with canvas sending same nonce / timestamp data
 
 
 class LTIRemoteUserBackend(RemoteUserBackend):
