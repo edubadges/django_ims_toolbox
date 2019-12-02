@@ -69,7 +69,7 @@ LMS_CHOICES = tuple([
 
 class LTITenant(models.Model):
 
-    app = models.ForeignKey(LTIApp)
+    app = models.ForeignKey(LTIApp, on_delete=models.CASCADE)
     organization = models.CharField(max_length=256)
     slug = models.SlugField()
     lms = models.CharField(max_length=256, choices=LMS_CHOICES)  # learning management system
@@ -82,7 +82,7 @@ class LTITenant(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     modified_at = models.DateTimeField(auto_now=True, editable=False)
-    badgr_app = models.ForeignKey(BadgrApp , null=True, on_delete=models.SET_NULL)
+    badgr_app = models.ForeignKey(BadgrApp, null=True, on_delete=models.SET_NULL)
     lms_domain = models.URLField(max_length=512, null=True)
 
     def _start_generic_session(self, launch_request, data):
