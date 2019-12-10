@@ -3,12 +3,11 @@ import os
 from zipfile import ZipFile
 
 from bs4 import BeautifulSoup
-
 from django.conf import settings
-from django.db import models
 from django.core.exceptions import ValidationError
-from django.utils.html import format_html
 from django.core.files.storage import default_storage
+from django.db import models
+from django.utils.html import format_html
 
 
 class IMSArchive(models.Model):

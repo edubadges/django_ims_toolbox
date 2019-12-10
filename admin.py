@@ -1,7 +1,6 @@
 from django.contrib import admin
-from mainsite.admin import badgr_admin
-
 from ims.models import IMSArchive, LTIApp, LTITenant
+from mainsite.admin import badgr_admin
 
 
 class IMSArchiveAdmin(admin.ModelAdmin):

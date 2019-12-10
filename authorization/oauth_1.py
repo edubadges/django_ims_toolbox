@@ -1,10 +1,8 @@
-from oauthlib.oauth1 import RequestValidator
-
 from django.contrib.auth.backends import RemoteUserBackend
 from django.core.exceptions import ValidationError
-from social_django.models import Nonce
-
 from ims.models import LTITenant
+from oauthlib.oauth1 import RequestValidator
+from social_django.models import Nonce
 
 UNICODE_ASCII_CHARACTER_SET = ('abcdefghijklmnopqrstuvwxyz'
                                'ABCDEFGHIJKLMNOPQRSTUVWXYZ'

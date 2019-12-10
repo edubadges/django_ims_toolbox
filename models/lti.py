@@ -1,14 +1,12 @@
 import uuid
-from oauthlib.common import generate_token
-
-from django.conf import settings
-from django.db import models
-from django.urls import reverse, NoReverseMatch, resolve, Resolver404
-from django.core.exceptions import ValidationError
 
 from dgconfig import ConfigurationField
-
+from django.conf import settings
+from django.core.exceptions import ValidationError
+from django.db import models
+from django.urls import reverse, NoReverseMatch, resolve, Resolver404
 from mainsite.models import BadgrApp
+from oauthlib.common import generate_token
 
 
 class LTIPrivacyLevels(object):
