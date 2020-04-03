@@ -6,9 +6,9 @@ from django.urls import reverse, resolve
 from django.views.decorators.csrf import csrf_exempt
 from lti.contrib.django import DjangoToolProvider
 
-from ..authorization import LTIRequestValidator
-from ..models import LTIApp, LTIPrivacyLevels, LTITenant
-from ..models.lti import LearningManagementSystems
+from ims.authorization import LTIRequestValidator
+from ims.models import LTIApp, LTIPrivacyLevels, LTITenant
+from ims.models.lti import LearningManagementSystems
 
 
 @csrf_exempt
